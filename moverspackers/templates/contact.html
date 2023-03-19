@@ -1,0 +1,142 @@
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+<meta name="viewport" initial-scale=1">
+
+
+
+</head>
+
+<body>
+{% include 'header.html' %}
+<div class="contact">
+      <img src="/static/images/contact.jpg" alt="img1" width="1536" height="510">
+    <div class="input-group-prepend">
+    <div class="text-block" style="font-family:fantasy">
+        <h1 style="font-size:5rem;left: 640px;position: absolute;top: 300px; color: black;padding-left: 20px;padding-right: 20px;"> CONTACT US</h1>
+    </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 col-md-12 col-sm-12" style="padding-left:160px">
+            <div class="row pt-5"> <!-- pt--is padding top, in same way pb,pl,pr--padding bottom,left,right -->
+                <div class="col-lg-1 offset-1 col-md-2 col-sm-2 ">
+                    <span style="color:Navy blue"><i class="fa-sharp fa-solid fa-location-dot fa-3x"></i></span>
+                </div>
+                 <div class="col-lg-10 col-md-9 col-sm-9">
+             <h3>Find Us At...</h3>
+                     <p>Elvin Logistics - Packers & Movers<br>
+                        Shop No.26 A Jheel Building, Sanghvi Nagar,<br>
+                         Mira Bhayandar Rd, Mira Road,<br>
+                         Thane, Maharashtra 401107.
+                     </p>
+
+                 </div>
+            </div>
+
+              <div class="row pt-5"> <!-- pt--is padding top, in same way pb,pl,pr--padding bottom,left,right -->
+                <div class="col-lg-1 offset-1 col-md-2 col-sm-2">
+                    <span style="color:Navy blue"><i class="fa-sharp fa-solid fa-location-dot fa-3x"></i></span>
+                </div>
+                 <div class="col-lg-10 col-md-9 col-sm-9">
+             <h3>Let us know about our <br>Services...</h3>
+                      <h6>Click<a href="https://forms.gle/oFvUMMqh2BY8ivHy6"> 'Here'</a> to proceed to the feedback form. </h6>
+
+                 </div>
+             </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 col-sm-12" style="padding-left:160px">
+                  <div class="row pt-5"> <!-- pt--is padding top, in same way pb,pl,pr--padding bottom,left,right -->
+                <div class="col-lg-1 offset-1 col-md-2 col-sm-2">
+                    <span style="color:cadetblue"><i class="fa-solid fa-phone-volume fa-3x"></i></span>
+                </div>
+                 <div class="col-lg-10 col-md-9 col-sm-9">
+             <h3>Ring At...</h3>
+                     <p>Divyanka Gharat<br>
+                       +91 9347215478<br>
+                     </p>
+
+
+</div>
+            </div>
+
+        </div>
+
+
+
+    </div>
+    <div class="card shadow container mt-5">
+    <div class="card-body">
+        <h5 class="p-2 text-danger" style="border-bottom:2px solid orange">Enquiry Form..</h5>
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" name="fullname" class="form-control" placeholder="Enter your name">
+                        </div>
+                    </div>
+
+
+
+                         <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>Contact</label>
+                            <input type="text" name="contact" class="form-control" placeholder="Contact">
+                        </div>
+                    </div>
+
+                      <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="text" name="email" class="form-control" placeholder="Enter your email">
+                        </div>
+                    </div>
+
+
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>Subject</label>
+                            <input type="text" name="subject" class="form-control" placeholder="subject">
+                        </div>
+                    </div>
+
+                     <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>Do you want to Enquire anything regarding our services ?</label>
+                            <textarea name="message" class="form-control">Message...</textarea>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+                  <input type="submit" value="Send" class="form-control m-2 px-3 btn btn-primary">
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</body>
+</html>
+
+{% if error == "no" %}
+<script>
+  alert('Your Message is been send, We will contact you soon !!');
+  window.location =('{% url 'manage_services' %}');
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+  alert('Something went wrong,Try again');
+</script>
+{% endif %}

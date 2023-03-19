@@ -1,0 +1,103 @@
+{% load static %}
+{% include 'header.html' %}
+
+<header class="container-fluid" style="border : 4px ridge red">
+    <img src = "{% static 'images/MovingHouse.png' %}" width="1472" height="735" class="img-responsive">
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Services</li>
+    </ol>
+</nav>
+
+
+    <div class="container">
+        <h3 class="page-title text-center" style="color : red;
+font-size : 2em;
+padding: .5em 1em;
+width:30%;
+margin:0 auto;
+text-transform:uppercase;font-family:garamond,serif;font-weight:bold">Services</h3>
+
+        <div class="row">
+
+            {% for i in services %}
+            <div class="col-sm-4 p-2 mb-5">
+                <div class="card" style="width:300px">
+                    <img class="card-img-top" src="{{i.image.url}}" style="width:100px ;height:100px ">
+                    <h4 class="card-title text-center">{{i.title}}</h4>
+                    <p class="card-text text-justify">{{i.description}}</p>
+
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</header>
+
+
+
+
+<!-- footer start-->
+<footer style="height:350px">
+
+<div style="position:absolute;bottom:-900px;background-color:#111111;">
+    <h4 class="text-center text-light pt-5" style="font-family: fangsong;">The Relocation Specialists</h4>
+        <p class="text-center text-primary">&copy; Divyanka</p>
+  <div style="display: grid; grid-template-columns: 3fr 2fr 4fr;  align-items: stretch;">
+    <div style="width: 100%;display: flex;  flex-direction: column;  padding: 0 2em;  min-height: 15em;padding-left:180px">
+        <h3 style="width: 100%;text-align: left;color: white;font-size: 1.6em;font-weight:bold;white-space: nowrap;padding-top:8px;font-family: fangsong;">Connect</h3>
+        <p style="color:white">
+            <i class="fa-solid fa-map-location-dot"></i>   Sienna Towers, Service Road, Bangalore
+        </p>
+
+        <div  style="display: flex;  justify-content: space-around;  font-size: 2.4em;  flex-direction: row;  margin-top: 0.5em;color:white ">
+            <i class="fa-brands fa-whatsapp"></i>
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-twitter"></i>
+        </div>
+    </div>
+
+    <div style="padding-left:210px">
+        <h3 style="width: 100%;text-align: left;color: white;font-size: 1.6em;font-weight:bold;white-space: nowrap;padding-top:8px;font-family: fangsong;">Links</h3>
+        <ul style="list-style: none;display: flex;flex-direction: column;padding: 0;margin: 0;font-family: fangsong;font-size: 1.2em">
+            <li><a href="#home" style="color:#ded3d3">Home</a></li>
+            <li><a href="#team" style="color: #a7a7a7">Team</a></li>
+            <li><a href="#blogs" style="color: #a7a7a7">Blogs</a></li>
+            <li><a href="#support" style="color: #a7a7a7">Support</a></li>
+        </ul>
+    </div>
+
+    <div style="padding-left:200px">
+        <h3 style="width: 100%;text-align: left;color: white;font-size: 1.6em;font-weight:bold;white-space: nowrap;padding-top:8px;font-family: fangsong;">Newsletter</h3>
+        <div>
+           <input type="email" placeholder="Your email id here" style=" font-size: 1em;  padding: 1em; width: 80%;  border-radius: 5px;  margin-bottom: 5px;" />
+           <button style=" font-size: 1em;  padding: 1em;  width: 80%;  border-radius: 5px; margin-bottom: 5px; background-color: #c7940a; color: #ffffff;">Subscribe</button>
+        </div>
+    </div>
+
+</div>
+</div>
+</footer>

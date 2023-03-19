@@ -1,0 +1,54 @@
+<!-- Data is to be displayed in tabular format -->
+
+{% extends 'admin_base.html' %}
+
+{% block main %}
+
+<div class="card m-2">
+    <div class="card-body">
+        <h5 class="p-2 text-danger" style="border-bottom:2px solid orange">New Reservations</h5>
+        <div class="container-fluid">
+
+            <h5 class="text-center">Report from {{fd}} to {{td}}</h5>
+            <table class="table table-border" id="example"> <!-- to create table -->
+                <thead> <!-- to create table headings -->
+                  <tr>
+                      <th>Sr.No</th>   <!-- th is table heading and displayed n form of table -->
+                      <th>Name</th>
+                      <th>Contact</th>
+                      <th>From</th>
+                      <th>To</th>
+                      <th>Shifting-Date</th>
+                      <th>Brief-Items</th>
+                      <th>Items</th>
+
+
+                  </tr>
+                </thead>
+                <tbody> <!-- data inside the table -->
+                   {% for i in booking %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{i.name}}</td>
+                        <td>{{i.mobile}}</td>
+                        <td>{{i.location}}</td>
+                        <td>{{i.shiftingloc}}</td>
+                         <td>{{i.shiftingdate}}</td>
+                         <td>{{i.briefitems}}</td>
+                        <td>{{i.items}}</td>
+
+
+
+                    </tr>
+                   {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}

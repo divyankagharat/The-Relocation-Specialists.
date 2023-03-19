@@ -1,0 +1,30 @@
+.nav-link{
+color : white !important;
+}
+
+.nav-link:hover{
+color : yellow !important;
+background-color : red;
+border-radius : 15px;
+}
+
+.navbar-brand{
+font-weight : bold
+}
+
+.nav-item .active{
+background-color : orange;
+border-radius : 30px
+}
+
+.footer-copyright{
+    background: #000;
+    width: 100vw;
+    padding: 20px 20px 50px 20px;
+}
+.footer-copyright p{
+    font-size: 14px;
+    word-spacing: 2px;
+    align-items: center;
+    justify-content: center;
+}

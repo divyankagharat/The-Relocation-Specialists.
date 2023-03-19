@@ -1,0 +1,111 @@
+{% load static %}
+{% include 'header.html' %}
+
+<header class="container-fluid" style="border : 4px ridge red">
+    <img src = "{% static 'images/MovingHouse.png' %}" width="1472" height="540" class="img-responsive"> </header>
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Request-Quote</li>
+    </ol>
+</nav>
+
+
+
+<div class="card shadow container mb-5">
+    <div class="card-body">
+        <h5 class="p-2 text-danger" style="border-bottom:2px solid orange">Request a Quote</h5>
+        <div class="container-fluid">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" name="name" class="form-control" placeholder="Enter your name">
+                        </div>
+                    </div>
+
+                         <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="text" name="email" class="form-control" placeholder="Enter your email">
+                        </div>
+                    </div>
+
+                         <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>Contact</label>
+                            <input type="text" name="contact" class="form-control" placeholder="Contact">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>where do you want the packers and movers service?</label>
+                            <input type="text" name="location" class="form-control" placeholder="where do you want the packers and movers service">
+                        </div>
+                    </div>
+
+                     <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>Where are you relocating?</label>
+                            <input type="text" name="shiftingloc" class="form-control" placeholder="Enter place">
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>Date</label>
+                            <input type="date" name="shiftingdate" class="form-control" placeholder="Enter Date">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>What do you want to shift ? </label>
+                            <select name="briefitems" class="form-control">
+                                <option value="">Select</option>
+                                <option value="1 BHK">1 BHK</option>
+                                <option value="2 BHK">2 BHK</option>
+                                <option value="3 BHK">3 BHK</option>
+                                <option value="4 BHK">4 BHK</option>
+                                <option value="Car Transport">Vehicle Transport</option>
+                                <option value="Industrial Transport">Industrial Transport</option>
+                                <option value="International Transportation">International Transportation</option>
+                                <option value="Office Shifting">Office Shifting</option>
+                                <option value="Few Items">Few Items</option>
+                            </select>
+                        </div>
+                    </div>
+
+                     <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>Please Mention all the items you want to shift</label>
+                            <textarea name="items" class="form-control" placeholder="E.g: Luggage, Packages"></textarea>
+                        </div>
+                    </div>
+
+
+                </div>
+                  <input type="submit" value="Submit" class="m-2 px-3 btn btn-primary">
+            </form>
+        </div>
+    </div>
+</div>
+
+{% if error == "no" %}
+<script>
+  alert('Your Request is been sent, We will contact you soon !!!!');
+  window.location =('{% url 'request_quote' %}');
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+  alert('Something went wrong,Try again');
+</script>
+{% endif %}

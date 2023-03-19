@@ -1,0 +1,50 @@
+<!-- Data is to be displayed in tabular format -->
+
+{% extends 'admin_base.html' %}
+
+{% block main %}
+
+<div class="card m-2">
+    <div class="card-body">
+        <h5 class="p-2 text-danger" style="border-bottom:2px solid orange">Read Queries</h5>
+        <div class="container-fluid">
+            <table class="table table-border" id="example"> <!-- to create table -->
+                <thead> <!-- to create table headings -->
+                  <tr>
+                      <th>Sr.No</th>   <!-- th is table heading and displayed n form of table -->
+                      <th>Name</th>
+                      <th>Email</th>
+                      <th>Contact</th>
+                      <th>Subject</th>   <!-- th is table heading and displayed n form of table -->
+                      <th>Action</th>
+
+                  </tr>
+                </thead>
+                <tbody> <!-- data inside the table -->
+                   {% for i in contact %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{i.name}}</td>
+                        <td>{{i.emailid}}</td>
+                        <td>{{i.contact}}</td>
+                        <td>{{i.mdate}}</td>
+
+                            <a href="{% url 'delete_services' i.id %}" class="btn btn-danger mt-2" style="width:80px"
+                            onclick="return confirm('Are you Sure ?')">Delete</a>
+                        </td>
+
+
+
+                    </tr>
+                   {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}

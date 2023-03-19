@@ -1,0 +1,65 @@
+{% load static %}
+{% include 'header.html' %}
+<head>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+</head>
+
+<body style="background-image : url({% static 'images/bg.jpg' %});background-size: 1550px 750px;">
+
+<div class="row">
+  <div class="col-lg-5 m-auto">
+
+    <div class="card mt-5" >
+      <div class="card-title text-center mt-5">
+        <img src="/static/images/log.png" alt="login" style="width:150" height="150">
+      </div>
+      <div class="card-body">
+        <form method="POST">
+          {% csrf_token%}
+          <div class="input-group mb-3"> <!-- mb-3 is margin bottom giver margin (space) between 2 textbox; mt is margin top -->
+            <div class="input-group-prepend">           <!--input-group-prepend used if you have an img before text box.if after text then append-->
+              <span class="input-group-text">
+                <i class="fa fa-user fa-2x"></i>
+              </span>
+            </div>
+            <input type="text" name="username" class="form-control py-4" placeholder=" Enter UserName">
+          </div>
+
+          <div class="input-group mb-3"> <!-- mb-3 is margin bottom giver margin (space) between 2 textbox; mt is margin top -->
+            <div class="input-group-prepend">           <!--input-group-prepend used if you have an img before text box.if after text then append-->
+              <span class="input-group-text">
+                <i class="fa fa-lock fa-2x"></i>
+              </span>
+            </div>
+            <input type="password" name="pwd" class="form-control py-4" placeholder=" Enter Password">
+          </div>
+          <input type="submit" value="Login" class="btn btn-primary px-5">  <!-- px-5 gives space between text,x means horizontal -->
+          <a href="{% url 'index' %}" class="float-right text-black mt-2">Home Page</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+
+{% if error == "no" %}
+<script>
+  alert('Login Successful');
+  window.location =('{% url 'admin_home' %}');
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+  alert('Invalid Login credentials,Try again');
+</script>
+{% endif %}

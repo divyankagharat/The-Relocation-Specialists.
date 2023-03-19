@@ -1,0 +1,44 @@
+1. when you want to make a page then in templates create an html page,after creating it you have to give paths in url.py(eg.path('add_services',add_services, name="add_services"),
+along with its function in views.py)
+2. Django has its own database so we don't need to import sql or any other database, so if you want to collect data from the user like name,email,contact,location,date etc you have to create a database in Models.py with
+class classname(models.Models):
+    name = models.CharField(max_length=100, null=True)  #for text field use CharField
+    email = models.CharField(max_length=100, null=True)
+    mobile = models.CharField(max_length=15,null=True)
+    location = models.CharField(max_length=200, null=True)
+   mdate = models.DateField(max_length=15, null=True) #for date field use DateField
+     image = models.FileField(null=True)  #for image,pdf,audio,video field use FileField
+
+    def __str__(self):
+        return self.name
+
+3. when you have to write a query in views.py use 'Q' to write a query and import it first
+4. In view.py to Get images as an input from the user we don't use POST but FILES
+e.g: st = request.POST['servicetitle']
+        des = request.POST['description']
+        image = request.FILES['image']
+
+5. while making a form it is important to add {% csrf_token %} with the POST method
+6. If you want to apply css to the elements (button,textbox,image etc) use 'style'
+7. class="collapse navbar-collapse" makes a collapsible navbar
+8. to import other html page in django we use {% include 'name.html' %}
+9. To use font awesome and many other things import their links
+10. <link rel="stylesheet" href="{% static 'css/mystyle.css' %}"><!-- to link external css file-->
+<script src="{% static 'js/sidebar.js' %}"></script>  <!-- to link external js file-->
+11.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
